@@ -5,13 +5,13 @@ import './globals.css'
 
 const notoSansKR = Noto_Sans_KR({ 
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-sans"
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-noto-sans-kr'
 });
 
 export const metadata: Metadata = {
-  title: 'Bloom - Your Pregnancy Companion',
-  description: 'A warm, supportive pregnancy care app for modern mothers',
+  title: '마마로그 - 임신 기록 앱',
+  description: '임신 기간을 함께 기록하고 돌봐요',
   generator: 'v0.app',
   icons: {
     icon: [
@@ -32,14 +32,22 @@ export const metadata: Metadata = {
   },
 }
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+  themeColor: '#a3daff',
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className={`${notoSansKR.variable} font-sans antialiased`}>
+    <html lang="ko" className={notoSansKR.variable}>
+      <body className="font-sans antialiased">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
